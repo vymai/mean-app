@@ -12,10 +12,10 @@ const route = require('./routes/route');
 const port = 3000;
 
 // Adding Middleware - Cors
-app.user(cors());
+app.use(cors());
 
 // Body - Parser
-app.user(bodyparser.json());
+app.use(bodyparser.json());
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
