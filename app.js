@@ -9,6 +9,20 @@ var app = express();
 
 const route = require('./routes/route');
 
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/contactlist');
+
+// On Connection
+mongoose.connection.on('connected', () => {
+    console.log('Connected to database mongodb @ 27017');
+});
+
+mongoose.connection.on('error', (err) => {
+    if (err) {
+        console.log('Error in database connection: ' + err);
+    }
+});
+
 const port = 3000;
 
 // Adding Middleware - Cors
