@@ -34,13 +34,12 @@ export class ContactsComponent implements OnInit {
   }
 
   deleteContact(id:any) {
-    var contacts = this.contacts;
     this.contactService.deleteContact(id)
       .subscribe(data => {
         if (data.n == 1) {
-          for (var i = 0; i < contacts.length; i++) {
-            if (contacts[i]._id == id) {
-              contacts.splice(i,1);
+          for (var i = 0; i < this.contacts.length; i++) {
+            if (this.contacts[i]._id == id) {
+              this.contacts.splice(i,1);
             }
           }
         }
